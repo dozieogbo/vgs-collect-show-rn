@@ -15,8 +15,11 @@ import com.verygoodsecurity.vgsshow.core.VGSEnvironment;
 import com.verygoodsecurity.vgsshow.core.listener.VGSOnResponseListener;
 import com.verygoodsecurity.vgsshow.core.logs.VGSShowLogger;
 import com.verygoodsecurity.vgsshow.core.network.client.VGSHttpMethod;
+import com.verygoodsecurity.vgsshow.core.network.model.VGSRequest;
 import com.verygoodsecurity.vgsshow.core.network.model.VGSResponse;
 import com.verygoodsecurity.vgsshow.widget.VGSTextView;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +27,7 @@ import java.util.Map;
 public class VGSShowModule extends ReactContextBaseJavaModule {
 
     private static final String RESPONSE_EVENT_NAME = "VGSShowOnVGSResponse";
-    private static final String VAULT_ID = "<VAULT_ID>";
+    private static final String VAULT_ID = "tntbuyt0v9u";
     private static final String MODULE_NAME = "VGSShow";
     private static final String PATH = "/post";
 
@@ -67,8 +70,14 @@ public class VGSShowModule extends ReactContextBaseJavaModule {
             @Override
             public void onResponse(VGSResponse response) {
 //                sendResponse(response);
+                if (response instanceof VGSResponse.Success) {
+                    Log.d("VGSShowModule", ((VGSResponse.Success) response).toString());
+
+                }
                 Log.d("VGSShowModule", "submitAsync" + response.toString());
             }
+
+
         });
     }
 
@@ -79,14 +88,16 @@ public class VGSShowModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void submitAsync(ReadableMap rnMap) {
-        String key11 = rnMap.hasKey("payment_card_number") ? rnMap.getString("payment_card_number") : "empty";
-        String key12 = rnMap.hasKey("payment_card_expiration_date") ? rnMap.getString("payment_card_expiration_date") : "empty";
-        Log.d("VGSShowModule", "key1: " + key11);
-        Log.d("VGSShowModule", "key2: " + key12);
+        String cardToken = rnMap.getString("token");
+        String cardId = rnMap.getString("cardId");
+        String type = rnMap.getString("type");
 
-        Map<String, Object> map = recursivelyDeconstructReadableMap(rnMap);
-        convertWithIteration(map);
-        show.requestAsync(PATH, VGSHttpMethod.POST, map);
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + cardToken);
+
+        show.requestAsync(new VGSRequest.Builder(String.format("/cards/%s/secure-data/%s", cardId, type), VGSHttpMethod.GET)
+                .headers(headers)
+                .build());
     }
 
     @ReactMethod

@@ -36,96 +36,28 @@ export default class VGSFormView extends Component<Props> {
 
     revealData = () => {
         var data = {
-            'payment_card_number': this.state.cardNumberToken,
-            'payment_card_expiration_date': this.state.expirationDateToken
+            'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzkzNTc1OTljYmE5Mjk0ZDk2Zjk4NjciLCJ0eXBlIjoiQ0FSRFRPS0VOIiwiaWF0IjoxNjc2OTk2ODIzLCJleHAiOjE2NzY5OTY5NDN9.LpqxeEBL2pvOuSjWqSeXoK5jsLlt7xMT_P-jtdwiQDM',
+            'cardId': '639357599cba9294d96f9867'
         };
 
-        VGSShow.submitAsync(data)
+        VGSShow.submitAsync({...data, type: 'number'})
+        VGSShow.submitAsync({...data, type: 'cvv2'})
     }
 
     copyCardNumber = () => {
-        VGSShow.copyToClipboard('json.payment_card_number', 'FORMATTED')
+        VGSShow.copyToClipboard('data.number', 'FORMATTED')
     }
 
     render() {
         return (<View style={{
             flex: 1, flexDirection: 'column'
         }}>
-            <View style={{
-                width: '100%', height: '50%', justifyContent: 'center', padding: 24
-            }}>
-                <CardNumberLayout
-                    style={styles.collectField}
-                    hint={'Card Number'}
-                    fiendName={'cardNumber'}
-                    corners={12}
-                    fontSize={16}
-                />
-                <Text
-                    ref={(el) => {
-                        this.cardNumberToken = el;
-                    }}
-                    style={styles.tokenInfo}
-                    numberOfLines={1}
-                    onChangeText={this.showCardNumberToken}>
-                    {this.state.cardNumberToken}
-                </Text>
-
-                <View style={{
-                    width: '100%', height: 8
-                }}/>
-
-                <CardExpDateLayout
-                    style={styles.collectField}
-                    hint={'Expiration Date'}
-                    fiendName={'expDate'}
-                    corners={12}
-                    fontSize={16}
-                />
-                <Text
-                    adjustsFontSizeToFit={true}
-                    ref={(el) => {
-                        this.expirationDateTokenValue = el;
-                    }}
-                    style={styles.tokenInfo}
-                    numberOfLines={1}
-                    onChangeText={this.showExpirationDateToken}>
-                    {this.state.expirationDateToken}
-                </Text>
-
-                <View style={{
-                    width: '100%', height: 8
-                }}/>
-
-                <Button style={styles.button}
-                        title="Submit"
-                        onPress={() => VGSCollect.submitAsync()}
-                />
-
-                <View style={{
-                    width: '100%', height: 8
-                }}/>
-
-                <View style={styles.bodyResponse}>
-                    <Text style={styles.titleText}
-                          onPress={this.onPressTitle}
-                          onChangeText={this.showUserData}
-                    >
-                        {this.state.bodyText}
-                    </Text>
-                </View>
-            </View>
-
-            <View style={{
-                width: '100%', height: 1, backgroundColor: 'black'
-            }}/>
-
             <View style={{width: '100%', height: '50%', justifyContent: 'center', padding: 24}}>
 
                 <VGSTextView
                     style={styles.showField}
                     hint={'Card Number'}
-                    contentPath={'json.payment_card_number'}
+                    contentPath={'data.number'}
                     corners={12}
                     fontSize={16}
                 />
@@ -138,7 +70,7 @@ export default class VGSFormView extends Component<Props> {
                 <VGSTextView
                     style={styles.showField}
                     hint={'Expiration Date'}
-                    contentPath={'json.payment_card_expiration_date'}
+                    contentPath={'data.cvv2'}
                     corners={12}
                     fontSize={16}
                 />
