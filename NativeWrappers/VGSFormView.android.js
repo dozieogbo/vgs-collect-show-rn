@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
-import {Button, DeviceEventEmitter, StyleSheet, Text, View} from 'react-native';
-
-import CardNumberLayout from './android/fields/number/NativeView';
-
-import CardExpDateLayout from './android/fields/date/NativeView';
+import {Button, DeviceEventEmitter, StyleSheet, View} from 'react-native';
 
 import VGSTextView from './android/fields/show/text/NativeView';
 
 import VGSShow from './android/module/show/VGSShow';
 
-import VGSCollect from './android/module/collect/VGSCollect';
 
 export default class VGSFormView extends Component<Props> {
     constructor(props) {
