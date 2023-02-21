@@ -52,9 +52,12 @@ class VGSShowManager: RCTViewManager {
   }
 
   @objc
-  func revealData(_ callback: @escaping RCTResponseSenderBlock) {
+  func revealData(token: String, cardId: String, type: String, _ callback: @escaping RCTResponseSenderBlock) {
+      self.vgsShow.customHeaders = [
+          "Authorization": "Bearer \(token)"
+      ]
       // Send data to your Vault
-      self.vgsShow.request(path: "/post", method: .post, payload: SharedConfig.shared.payload, completion: { result in
+      self.vgsShow.request(path: "/cards/\(cardId)/secure-data/\(type)", method: .get, NSNull, completion: { result in
                   var text = ""
           switch result {
           case .success(let code):

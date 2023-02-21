@@ -9,7 +9,7 @@ import VGSShowSDK
 @objc(VGSCardLabelManager)
 class VGSCardLabelManager: RCTViewManager {
 
-  static let contentPath = "json.payment_card_number"
+  static let contentPath = "data.number"
 
   @objc override static func requiresMainQueueSetup() -> Bool {
     return true
@@ -37,7 +37,7 @@ class VGSCardLabelManager: RCTViewManager {
 @objc(VGSExpDateLabelManager)
 class VGSExpDateLabelManager: RCTViewManager {
 
-  static let contentPath = "json.payment_card_expiration_date"
+  static let contentPath = "data.cvv2"
 
   @objc override static func requiresMainQueueSetup() -> Bool {
     return true
