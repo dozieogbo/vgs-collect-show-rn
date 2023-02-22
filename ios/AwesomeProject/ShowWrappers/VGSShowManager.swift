@@ -5,6 +5,7 @@
 
 import Foundation
 import VGSShowSDK
+import VGSCollectSDK
 
 class SharedConfig {
   static let shared = SharedConfig()
