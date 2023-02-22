@@ -57,7 +57,7 @@ class VGSShowManager: RCTViewManager {
           "Authorization": "Bearer \(token)"
       ]
       // Send data to your Vault
-      self.vgsShow.request(path: "/cards/\(cardId)/secure-data/\(type)", method: .get, NSNull, completion: { result in
+      self.vgsShow.request(path: "/cards/\(cardId)/secure-data/\(type)", method: .get, completion: { result in
                   var text = ""
           switch result {
           case .success(let code):
