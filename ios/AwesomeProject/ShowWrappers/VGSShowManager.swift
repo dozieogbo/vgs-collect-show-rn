@@ -7,6 +7,19 @@ import Foundation
 import VGSShowSDK
 import VGSCollectSDK
 
+class SharedConfig {
+  static let shared = SharedConfig()
+
+  // Insert you <vauilt id here>
+  let vaultId = "tntbuyt0v9u"
+  // Set environment, `sandbox` or `live`
+  let environment = Environment.sandbox
+
+  var payload: [String:Any] = [:]
+
+  private init() {}
+}
+
 @objc(CardShow)
 class CardShow: RCTViewManager {
   static let shared = CardShow()

@@ -34,8 +34,8 @@ class VGSCardLabelManager: RCTViewManager {
   }
 }
 
-@objc(VGSExpDateLabelManager)
-class VGSExpDateLabelManager: RCTViewManager {
+@objc(VGSCvvLabelManager)
+class VGSCvvLabelManager: RCTViewManager {
 
   static let contentPath = "data.cvv2"
 
@@ -44,12 +44,12 @@ class VGSExpDateLabelManager: RCTViewManager {
   }
 
   override func view() -> UIView! {
-    let expDateLabel = VGSLabel()
-    expDateLabel.placeholder = "Revealed Expiration Date"
-    expDateLabel.paddings = .init(top: 8, left: 8, bottom: 8, right: 8)
-    expDateLabel.contentPath = VGSExpDateLabelManager.contentPath
-    CardShow.shared.show.subscribe(expDateLabel)
-    return expDateLabel
+    let cvvLabel = VGSLabel()
+    cvvLabel.placeholder = "Revealed CVV"
+    cvvLabel.paddings = .init(top: 8, left: 8, bottom: 8, right: 8)
+    cvvLabel.contentPath = VGSCvvLabelManager.contentPath
+    CardShow.shared.show.subscribe(cvvLabel)
+    return cvvLabel
   }
 }
 

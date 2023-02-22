@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import {NativeModules} from 'react-native';
-import CardTextField from './ios/CollectViews/CardTextField';
-import ExpDateTextField from './ios/CollectViews/ExpDateTextField';
-import CardNumberLabel from './ios/ShowViews/CardNumberLabel';
-import ExpDateLabel from './ios/ShowViews/ExpDateLabel';
+import CardNumberLabel from './ios/CardNumberLabel';
+import CvvLabel from './ios/CvvLabel';
 
 ///
 const VGSShowManager = NativeModules.VGSShowManager;
@@ -17,10 +15,8 @@ const VGSFormView = () => {
 
   return (
     <View style={styles.sectionContainer}>
-      <CardTextField style={{height: 50, margin: 8}} />
-      <ExpDateTextField style={{height: 50, margin: 8}} />
       <CardNumberLabel style={{height: 50, margin: 8}} />
-      <ExpDateLabel style={{height: 50, margin: 8}} />
+      <CvvLabel style={{height: 50, margin: 8}} />
       <Button
         title="REVEAL DATA"
         onPress={() => {
