@@ -2,8 +2,6 @@ package com.collectrndemo;
 
 import android.content.Intent;
 
-import com.collectrndemo.modules.collect.VGSCollectModule;
-import com.collectrndemo.modules.collect.VGSCollectPackage;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactInstanceManager;
@@ -21,10 +19,6 @@ public class MainActivity extends ReactActivity {
         List<ReactPackage> l = m.getPackages();
         for (int i = 0; i < l.size(); i++) {
             ReactPackage rp = l.get(i);
-            if (rp instanceof VGSCollectPackage) {
-                VGSCollectModule module = ((VGSCollectPackage) rp).getVGSCollectModule();
-                module.onActivityResult(requestCode, resultCode, data);
-            }
         }
     }
 

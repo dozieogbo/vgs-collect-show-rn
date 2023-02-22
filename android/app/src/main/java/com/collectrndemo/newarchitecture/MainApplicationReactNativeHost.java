@@ -5,11 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 
 import com.collectrndemo.BuildConfig;
-import com.collectrndemo.modules.collect.VGSCollectOnCreateViewInstanceListener;
-import com.collectrndemo.modules.collect.VGSCollectPackage;
-import com.collectrndemo.modules.collect.field.date.CardExpDatePackage;
-import com.collectrndemo.modules.collect.field.number.CardNumberPackage;
-import com.collectrndemo.modules.collect.scanner.ScanPackage;
 import com.collectrndemo.modules.show.VGSShowOnCreateViewInstanceListener;
 import com.collectrndemo.modules.show.VGSShowPackage;
 import com.collectrndemo.modules.show.field.TextViewPackage;
@@ -58,7 +53,6 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
     protected List<ReactPackage> getPackages() {
         List<ReactPackage> packages = new PackageList(this).getPackages();
 
-        getCollectPackages(packages);
         getShowPackages(packages);
 
         return packages;
@@ -132,21 +126,6 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
         ReactPackage[] array = new ReactPackage[]{
                 new TextViewPackage(listener),
                 show
-        };
-
-        packages.addAll(Arrays.asList(array));
-    }
-
-    private void getCollectPackages(List<ReactPackage> packages) {
-        // here we bind VGS secure fields with VGSCollect
-        VGSCollectPackage collect = new VGSCollectPackage();
-        VGSCollectOnCreateViewInstanceListener listener = collect.getListener();
-
-        ReactPackage[] array = new ReactPackage[]{
-                new ScanPackage(),
-                new CardNumberPackage(listener),
-                new CardExpDatePackage(listener),
-                collect
         };
 
         packages.addAll(Arrays.asList(array));

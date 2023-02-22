@@ -3,11 +3,6 @@ package com.collectrndemo;
 import android.app.Application;
 import android.content.Context;
 
-import com.collectrndemo.modules.collect.VGSCollectOnCreateViewInstanceListener;
-import com.collectrndemo.modules.collect.VGSCollectPackage;
-import com.collectrndemo.modules.collect.field.date.CardExpDatePackage;
-import com.collectrndemo.modules.collect.field.number.CardNumberPackage;
-import com.collectrndemo.modules.collect.scanner.ScanPackage;
 import com.collectrndemo.modules.show.VGSShowOnCreateViewInstanceListener;
 import com.collectrndemo.modules.show.VGSShowPackage;
 import com.collectrndemo.modules.show.field.TextViewPackage;
@@ -38,7 +33,6 @@ public class MainApplication extends Application implements ReactApplication {
                     @SuppressWarnings("UnnecessaryLocalVariable")
                     List<ReactPackage> packages = new PackageList(this).getPackages();
 
-                    getCollectPackages(packages);
                     getShowPackages(packages);
 
                     return packages;
@@ -110,21 +104,6 @@ public class MainApplication extends Application implements ReactApplication {
         ReactPackage[] array = new ReactPackage[]{
                 new TextViewPackage(listener),
                 show
-        };
-
-        packages.addAll(Arrays.asList(array));
-    }
-
-    private void getCollectPackages(List<ReactPackage> packages) {
-        // here we bind VGS secure fields with VGSCollect
-        VGSCollectPackage collect = new VGSCollectPackage();
-        VGSCollectOnCreateViewInstanceListener listener = collect.getListener();
-
-        ReactPackage[] array = new ReactPackage[]{
-                new ScanPackage(),
-                new CardNumberPackage(listener),
-                new CardExpDatePackage(listener),
-                collect
         };
 
         packages.addAll(Arrays.asList(array));
