@@ -12,10 +12,6 @@
 		038EDA1528735ED700AF3CF2 /* VGSShowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1128735ED700AF3CF2 /* VGSShowManager.swift */; };
 		038EDA1628735ED700AF3CF2 /* VGSCardLabelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1228735ED700AF3CF2 /* VGSCardLabelManager.m */; };
 		038EDA1728735ED700AF3CF2 /* VGSCardLabelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1328735ED700AF3CF2 /* VGSCardLabelManager.swift */; };
-		038EDA1E28735EE600AF3CF2 /* VGSManagerCollectBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1928735EE500AF3CF2 /* VGSManagerCollectBridge.m */; };
-		038EDA1F28735EE600AF3CF2 /* VGSCardTextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1B28735EE500AF3CF2 /* VGSCardTextFieldManager.swift */; };
-		038EDA2028735EE600AF3CF2 /* VGSTextFieldManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1C28735EE500AF3CF2 /* VGSTextFieldManager.m */; };
-		038EDA2128735EE600AF3CF2 /* VGSCollectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038EDA1D28735EE500AF3CF2 /* VGSCollectManager.swift */; };
 		0C80B921A6F3F58F76C31292 /* libPods-AwesomeProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-AwesomeProject.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -42,10 +38,6 @@
 		038EDA1128735ED700AF3CF2 /* VGSShowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowManager.swift; sourceTree = "<group>"; };
 		038EDA1228735ED700AF3CF2 /* VGSCardLabelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSCardLabelManager.m; sourceTree = "<group>"; };
 		038EDA1328735ED700AF3CF2 /* VGSCardLabelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSCardLabelManager.swift; sourceTree = "<group>"; };
-		038EDA1928735EE500AF3CF2 /* VGSManagerCollectBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSManagerCollectBridge.m; sourceTree = "<group>"; };
-		038EDA1B28735EE500AF3CF2 /* VGSCardTextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSCardTextFieldManager.swift; sourceTree = "<group>"; };
-		038EDA1C28735EE500AF3CF2 /* VGSTextFieldManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSTextFieldManager.m; sourceTree = "<group>"; };
-		038EDA1D28735EE500AF3CF2 /* VGSCollectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSCollectManager.swift; sourceTree = "<group>"; };
 		038EDA232873647F00AF3CF2 /* AwesomeProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AwesomeProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AwesomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AwesomeProject/AppDelegate.h; sourceTree = "<group>"; };
@@ -111,26 +103,6 @@
 			path = AwesomeProject/ShowWrappers;
 			sourceTree = "<group>";
 		};
-		038EDA1828735EE500AF3CF2 /* CollectWrappers */ = {
-			isa = PBXGroup;
-			children = (
-				038EDA1A28735EE500AF3CF2 /* CollectViews */,
-				038EDA1928735EE500AF3CF2 /* VGSManagerCollectBridge.m */,
-				038EDA1D28735EE500AF3CF2 /* VGSCollectManager.swift */,
-			);
-			name = CollectWrappers;
-			path = AwesomeProject/CollectWrappers;
-			sourceTree = "<group>";
-		};
-		038EDA1A28735EE500AF3CF2 /* CollectViews */ = {
-			isa = PBXGroup;
-			children = (
-				038EDA1B28735EE500AF3CF2 /* VGSCardTextFieldManager.swift */,
-				038EDA1C28735EE500AF3CF2 /* VGSTextFieldManager.m */,
-			);
-			path = CollectViews;
-			sourceTree = "<group>";
-		};
 		038EDA2228735EFC00AF3CF2 /* ShowViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +120,6 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				038EDA232873647F00AF3CF2 /* AwesomeProject-Bridging-Header.h */,
-				038EDA1828735EE500AF3CF2 /* CollectWrappers */,
 				038EDA0F28735ED700AF3CF2 /* ShowWrappers */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -476,12 +447,8 @@
 				038EDA1428735ED700AF3CF2 /* VGSShowManagerBridge.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				038EDA1628735ED700AF3CF2 /* VGSCardLabelManager.m in Sources */,
-				038EDA2028735EE600AF3CF2 /* VGSTextFieldManager.m in Sources */,
 				038EDA1528735ED700AF3CF2 /* VGSShowManager.swift in Sources */,
-				038EDA2128735EE600AF3CF2 /* VGSCollectManager.swift in Sources */,
 				038EDA1728735ED700AF3CF2 /* VGSCardLabelManager.swift in Sources */,
-				038EDA1F28735EE600AF3CF2 /* VGSCardTextFieldManager.swift in Sources */,
-				038EDA1E28735EE600AF3CF2 /* VGSManagerCollectBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
