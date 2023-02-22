@@ -52,7 +52,7 @@ class VGSShowManager: RCTViewManager {
   }
 
   @objc
-  func revealData(token: String, cardId: String, type: String, _ callback: @escaping RCTResponseSenderBlock) {
+  func revealData(_ token: NSString, cardId: NSString, type: NSString, callback: @escaping RCTResponseSenderBlock) {
       self.vgsShow.customHeaders = [
           "Authorization": "Bearer \(token)"
       ]
