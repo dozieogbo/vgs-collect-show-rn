@@ -1,3 +1,3 @@
 import {requireNativeComponent} from 'react-native';
-const ExpDateLabel = requireNativeComponent('VGSExpDateLabel');
+const ExpDateLabel = requireNativeComponent('VGSCvvLabel');
 export default ExpDateLabel;
