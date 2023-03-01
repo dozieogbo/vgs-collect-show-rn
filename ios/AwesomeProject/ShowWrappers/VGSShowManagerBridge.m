@@ -10,7 +10,7 @@
 
 @interface RCT_EXTERN_MODULE(VGSShowManager, RCTViewManager)
 
-RCT_EXTERN_METHOD(revealData:(RCTResponseSenderBlock)callback);
+RCT_EXTERN_METHOD(revealData:(NSString)token cardId: (NSString)cardId type: (NSString)type callback: (RCTResponseSenderBlock)callback);
 
 @end
 

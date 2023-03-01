@@ -7,6 +7,19 @@ import Foundation
 import VGSShowSDK
 import VGSCollectSDK
 
+class SharedConfig {
+  static let shared = SharedConfig()
+
+  // Insert you <vauilt id here>
+  let vaultId = "tntbuyt0v9u"
+  // Set environment, `sandbox` or `live`
+  let environment = Environment.sandbox
+
+  var payload: [String:Any] = [:]
+
+  private init() {}
+}
+
 @objc(CardShow)
 class CardShow: RCTViewManager {
   static let shared = CardShow()
@@ -52,9 +65,12 @@ class VGSShowManager: RCTViewManager {
   }
 
   @objc
-  func revealData(_ callback: @escaping RCTResponseSenderBlock) {
+  func revealData(_ token: NSString, cardId: NSString, type: NSString, callback: @escaping RCTResponseSenderBlock) {
+      self.vgsShow.customHeaders = [
+          "Authorization": "Bearer \(token)"
+      ]
       // Send data to your Vault
-      self.vgsShow.request(path: "/post", method: .post, payload: SharedConfig.shared.payload, completion: { result in
+      self.vgsShow.request(path: "/cards/\(cardId)/secure-data/\(type)", method: .get, completion: { result in
                   var text = ""
           switch result {
           case .success(let code):
